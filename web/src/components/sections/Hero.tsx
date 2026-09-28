@@ -6,57 +6,62 @@ import { contractingHref, quoteHref } from "@/content/navigation";
 
 /**
  * First viewport: logo/nav (layout) → headline → CTA → photography → steel service strip.
- * Phones get a vertical grade so the crew stays visible above the message.
+ *
+ * Desktop: a deep wine panel carries the type on the left; the photograph owns the right
+ * ~two-thirds so the machinist is never under the headline.
+ * Below lg: the photograph is a fixed-ratio band directly under the header and the copy
+ * stacks beneath it — no viewport-height padding, so there is no empty space above the message.
  */
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[calc(100svh-76px)] items-end overflow-hidden bg-ink pb-24 sm:min-h-[780px] sm:pb-40 lg:min-h-[max(820px,calc(100svh-130px))] lg:pb-52 2xl:max-h-[1120px]">
-      <Image
-        src="/images/photos/hero-crew-graded.jpg"
-        alt="Jeffries Mechanicals field crew in hard hats on a commercial jobsite"
-        fill
-        preload
-        quality={85}
-        sizes="100vw"
-        className="-z-20 animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover object-[36%_18%] contrast-[1.04] sm:object-[58%_28%] lg:object-[60%_30%]"
-      />
+    <section className="hero-panel-stack lg:hero-panel relative isolate overflow-hidden lg:flex lg:min-h-[clamp(620px,calc(100svh-210px),860px)] lg:items-center">
+      {/* Photograph — masked (not colour-faded) into the wine panel so there is never a seam */}
+      <div className="relative h-[clamp(230px,62vw,300px)] overflow-hidden [mask-image:linear-gradient(180deg,#000_42%,transparent)] sm:h-[clamp(300px,46vw,380px)] lg:absolute lg:inset-y-0 lg:right-0 lg:left-[34%] lg:h-auto lg:[mask-image:linear-gradient(90deg,transparent,#000_42%)] 2xl:left-[36%]">
+        <Image
+          src="/images/photos/hero-machinist-graded.jpg"
+          alt="Jeffries Mechanicals tradesman in a hard hat operating heavy machining equipment"
+          fill
+          preload
+          quality={85}
+          sizes="(min-width: 1024px) 66vw, 100vw"
+          className="animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover object-[46%_32%] lg:object-[50%_40%]"
+        />
+        <div aria-hidden className="absolute inset-0 hero-photo-grade" />
+        <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-t from-wine-950/80 to-transparent lg:block" />
+        <div aria-hidden className="absolute inset-0 opacity-30 mix-blend-overlay [background-image:var(--noise)]" />
+      </div>
 
-      {/* Photo grading */}
-      <div aria-hidden className="absolute inset-0 -z-10 hero-grade-mobile lg:hidden" />
-      <div aria-hidden className="absolute inset-0 -z-10 hidden hero-grade lg:block" />
-      <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 hidden h-1/2 bg-gradient-to-t from-ink/90 to-transparent lg:block" />
-      <div aria-hidden className="absolute inset-0 -z-10 opacity-35 mix-blend-overlay [background-image:var(--noise)]" />
       {/* Wine blade on the right edge */}
-      <div aria-hidden className="absolute inset-y-0 right-0 -z-10 hidden w-2 wine-fill-v lg:block" />
+      <div aria-hidden className="absolute inset-y-0 right-0 hidden w-1.5 wine-fill-v lg:block" />
 
-      <Container className="relative">
-        <div className="max-w-[min(72rem,64vw)] max-lg:max-w-none">
-          <p className="flex animate-rise items-center gap-4 font-display text-[11px] font-medium tracking-[0.28em] text-steel-200 uppercase sm:text-xs">
-            <span aria-hidden className="h-px w-10 steel-rule sm:w-14" />
+      <Container className="relative -mt-14 pb-24 sm:-mt-20 sm:pb-36 lg:mt-0 lg:pt-16 lg:pb-40 2xl:pb-44">
+        <div className="max-w-xl sm:max-w-2xl lg:max-w-[min(52rem,58%)]">
+          <p className="flex animate-rise items-center gap-3 font-display text-[10.5px] font-medium tracking-[0.26em] whitespace-nowrap text-steel-200 uppercase sm:gap-4 sm:text-xs lg:tracking-[0.24em]">
+            <span aria-hidden className="h-px w-8 steel-rule sm:w-12" />
             <span className="sm:hidden">Commercial • Public Sector • Trades</span>
             <span className="hidden sm:inline">Commercial • Public Sector • Institutional • Specialized Trades</span>
           </p>
 
-          <h1 className="mt-6 font-display text-[clamp(2.1rem,10.4vw,2.75rem)] leading-[0.9] font-bold tracking-[-0.015em] text-white uppercase sm:mt-8 sm:text-7xl lg:text-[clamp(5.6rem,6.3vw,8.4rem)]">
-            <span className="block animate-rise [animation-delay:120ms]">Built for the work</span>
-            <span className="relative isolate mt-2 inline-block animate-wipe px-3 pt-1 pb-2 [animation-delay:420ms] sm:mt-3 sm:px-5">
-              <span aria-hidden className="absolute inset-0 -z-10 wine-plate [clip-path:polygon(0_0,100%_0,calc(100%-0.22em)_100%,0_100%)]" />
+          <h1 className="mt-4 font-display text-[clamp(1.95rem,9vw,2.5rem)] leading-[0.95] font-bold tracking-[-0.005em] text-white uppercase sm:mt-6 sm:text-[clamp(2.75rem,7vw,3.75rem)] lg:text-[clamp(3.5rem,4.9vw,5.75rem)]">
+            <span className="block animate-rise whitespace-nowrap [animation-delay:120ms]">Built for the work</span>
+            <span className="relative isolate mt-1.5 inline-block animate-wipe px-2.5 pt-0.5 pb-1 [animation-delay:420ms] sm:mt-2 sm:px-4 sm:pb-1.5">
+              <span aria-hidden className="absolute inset-0 -z-10 wine-plate [clip-path:polygon(0_0,100%_0,calc(100%-0.2em)_100%,0_100%)]" />
               that matters.
             </span>
           </h1>
 
-          <span aria-hidden className="mt-8 block h-[3px] w-24 animate-rise steel-rule [animation-delay:520ms] sm:mt-10" />
+          <span aria-hidden className="mt-6 block h-[3px] w-16 animate-rise steel-rule [animation-delay:520ms] sm:mt-8 sm:w-20" />
 
-          <p className="mt-6 max-w-2xl animate-rise text-[15px] leading-relaxed text-steel-100 [animation-delay:600ms] sm:mt-7 sm:text-lg 2xl:max-w-3xl 2xl:text-xl">
+          <p className="mt-5 max-w-[34rem] animate-rise sm:max-w-[40rem] lg:max-w-[38rem] text-[15px] leading-relaxed text-steel-100/90 [animation-delay:600ms] sm:mt-6 sm:text-[17px] 2xl:max-w-[42rem] 2xl:text-lg">
             <span className="sm:hidden">{company.summary}</span>
             <span className="hidden sm:inline">{company.description}</span>
           </p>
 
-          <div className="mt-9 flex animate-rise flex-col gap-3 [animation-delay:720ms] sm:mt-10 sm:flex-row sm:gap-4">
-            <ButtonLink href={quoteHref} size="lg" arrow>
+          <div className="mt-7 flex animate-rise flex-col gap-3 [animation-delay:720ms] sm:mt-9 sm:flex-row sm:gap-4">
+            <ButtonLink href={quoteHref} size="lg" arrow className="max-sm:h-[52px]">
               Request a Quote
             </ButtonLink>
-            <ButtonLink href={contractingHref} size="lg" variant="glass">
+            <ButtonLink href={contractingHref} size="lg" variant="glass" className="max-sm:h-[52px]">
               Contracting Opportunities
             </ButtonLink>
           </div>

@@ -68,7 +68,7 @@ export function SiteHeader() {
         <div
           className={cn(
             "shell flex items-center justify-between gap-6 transition-[height] duration-500",
-            scrolled ? "h-[70px]" : "h-[76px] lg:h-[92px]",
+            scrolled ? "h-16 lg:h-[70px]" : "h-16 sm:h-[76px] lg:h-[92px]",
           )}
         >
           <Link href="/" className="relative shrink-0" aria-label={`${company.name} — home`}>
@@ -78,7 +78,7 @@ export function SiteHeader() {
               width={720}
               height={276}
               loading="eager"
-              className={cn("w-auto transition-all duration-500", scrolled ? "h-11" : "h-12 lg:h-[58px]")}
+              className={cn("w-auto transition-all duration-500", scrolled ? "h-10 lg:h-11" : "h-10 sm:h-12 lg:h-[58px]")}
             />
           </Link>
 
@@ -116,7 +116,7 @@ export function SiteHeader() {
               onClick={() => setMenuOpen(true)}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              className="group relative grid size-12 place-items-center border border-steel-300 bg-gradient-to-b from-white to-steel-100 transition-colors hover:border-wine-600 xl:hidden"
+              className="group relative grid size-11 place-items-center sm:size-12 border border-steel-300 bg-gradient-to-b from-white to-steel-100 transition-colors hover:border-wine-600 xl:hidden"
             >
               <span className="sr-only">Open menu</span>
               <span aria-hidden className="flex w-5 flex-col items-end gap-[5px]">
