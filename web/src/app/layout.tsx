@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Oswald } from "next/font/google";
+import { Inter, Montserrat, Oswald } from "next/font/google";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { company, siteUrl } from "@/content/company";
@@ -10,6 +10,14 @@ const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+/** Wordmark face — matches the geometric caps of the Jeffries logo lockup. */
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["600", "800"],
   display: "swap",
 });
 
@@ -53,7 +61,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${oswald.variable} ${inter.variable} antialiased`} data-scroll-behavior="smooth">
+    <html lang="en" className={`${oswald.variable} ${montserrat.variable} ${inter.variable} antialiased`} data-scroll-behavior="smooth">
       <body className="flex min-h-screen flex-col">
         <a
           href="#main"

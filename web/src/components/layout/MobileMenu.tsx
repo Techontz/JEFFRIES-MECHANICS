@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ArrowUpRight, MapPin, X } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { company, fullAddress } from "@/content/company";
 import { contractingHref, primaryNav, quoteHref } from "@/content/navigation";
 import { cn } from "@/lib/cn";
@@ -68,7 +68,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
         <span aria-hidden className="absolute inset-y-0 left-0 w-1 wine-fill-v" />
 
         <div className="flex items-center justify-between px-6 pt-5">
-          <Image src="/brand/logo-light.png" alt={company.legalName} width={720} height={264} className="h-10 w-auto" />
+          <Logo tone="dark" className="text-[12.5px]" />
           <button
             ref={closeRef}
             type="button"

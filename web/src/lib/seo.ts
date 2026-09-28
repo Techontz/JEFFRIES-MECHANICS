@@ -22,7 +22,7 @@ export function organizationJsonLd() {
     alternateName: company.name,
     description: company.description,
     url: siteUrl,
-    logo: `${siteUrl}/brand/logo-dark.png`,
+    logo: `${siteUrl}/brand/logo.png`,
     image: `${siteUrl}/og-image.jpg`,
     address: {
       "@type": "PostalAddress",

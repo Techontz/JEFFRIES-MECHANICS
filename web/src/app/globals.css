@@ -46,6 +46,7 @@
 
   --font-display: var(--font-oswald), "Arial Narrow", sans-serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-logo: var(--font-montserrat), "Arial", sans-serif;
 
   --ease-industrial: cubic-bezier(0.22, 1, 0.36, 1);
 

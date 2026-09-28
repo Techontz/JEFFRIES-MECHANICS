@@ -10,7 +10,7 @@ export function WhySection() {
     <section className="charcoal relative overflow-hidden py-28 lg:py-36">
       {/* welding photo, wine-graded, bleeding off the left */}
       <div aria-hidden className="absolute inset-y-0 left-0 hidden w-[42%] clip-slant-r [--slant:18%] lg:block">
-        <Image src="/images/photos/specialized-welding.jpg" alt="" fill sizes="42vw" className="object-cover object-[60%_center] brightness-[0.55] contrast-125 grayscale" />
+        <Image src="/images/photos/boiler-room.jpg" alt="" fill sizes="42vw" className="object-cover object-[60%_center] brightness-[0.55] contrast-125 grayscale" />
         <div className="absolute inset-0 bg-wine-900/45" />
         <div className="absolute inset-0 bg-gradient-to-r from-wine-950/30 via-steel-900/70 to-steel-900" />
       </div>

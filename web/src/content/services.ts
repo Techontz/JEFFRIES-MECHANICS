@@ -25,8 +25,8 @@ export const services: Service[] = [
       "System replacements and upgrades",
       "Repair and troubleshooting",
     ],
-    image: "/images/photos/mechanical-ductwork.jpg",
-    imageAlt: "Mechanical technician installing insulated HVAC ductwork",
+    image: "/images/photos/mechanical-room.jpg",
+    imageAlt: "Commercial mechanical room with pumps, piping and gauges",
     icon: Fan,
   },
   {
@@ -73,8 +73,8 @@ export const services: Service[] = [
       "Infrastructure assignments",
       "Skilled labor for defined scopes",
     ],
-    image: "/images/photos/specialized-welding.jpg",
-    imageAlt: "Tradespeople welding steel in a fabrication shop",
+    image: "/images/photos/valves-corridor.jpg",
+    imageAlt: "Industrial valves and piping in a mechanical corridor",
     icon: Flame,
   },
   {

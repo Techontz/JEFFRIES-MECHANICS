@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-/** Icon seated in a machined hex-nut frame — echoes the Jeffries logo mark. */
+/** Icon seated in a machined hex-nut frame. */
 export function HexIcon({ icon: Icon, tone = "steel", size = "md", className }: Props) {
   return (
     <span

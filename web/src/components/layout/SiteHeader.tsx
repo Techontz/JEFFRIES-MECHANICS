@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
+import { Logo } from "@/components/ui/Logo";
 import { company, fullAddress } from "@/content/company";
 import { contractingHref, primaryNav, quoteHref } from "@/content/navigation";
 import { cn } from "@/lib/cn";
@@ -72,13 +72,9 @@ export function SiteHeader() {
           )}
         >
           <Link href="/" className="relative shrink-0" aria-label={`${company.name} — home`}>
-            <Image
-              src="/brand/logo-dark.png"
-              alt={company.legalName}
-              width={720}
-              height={276}
-              loading="eager"
-              className={cn("w-auto transition-all duration-500", scrolled ? "h-10 lg:h-11" : "h-10 sm:h-12 lg:h-[58px]")}
+            <Logo
+              priority
+              className={cn("transition-[font-size] duration-500", scrolled ? "text-[12.5px] lg:text-[13.5px]" : "text-[12.5px] sm:text-[14.5px] lg:text-[17px]")}
             />
           </Link>
 

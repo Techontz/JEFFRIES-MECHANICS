@@ -9,12 +9,19 @@
 export const company = {
   name: "Jeffries Mechanicals",
   legalName: "Jeffries Mechanicals LLC",
-  tagline: "Mechanical • Electrical • Specialized Trade Contracting",
+  tagline: "Electrical • Mechanical • Facility • Building Solutions",
   description:
-    "Jeffries Mechanicals LLC provides mechanical, electrical, and specialized trade contracting for commercial, public-sector, and infrastructure projects across Kansas and the surrounding region, with a focus on quality workmanship, dependable execution, and contract-ready performance.",
+    "Jeffries Mechanicals LLC delivers mechanical, electrical, facility, construction-support, and specialized trade capabilities for commercial, institutional, public-sector, and infrastructure environments throughout the Kansas City region.",
   /** Short positioning line used where space is tight (mobile hero, cards). */
   summary:
-    "Mechanical, electrical and specialized trade contracting for commercial, public-sector and infrastructure projects across Kansas and the surrounding region.",
+    "Mechanical, electrical, facility and specialized trade capabilities for commercial, institutional, public-sector and infrastructure work throughout the Kansas City region.",
+  sectors: ["Commercial", "Public Sector", "Institutional", "Infrastructure", "Specialized Trades"],
+  /**
+   * Ownership identifiers as stated by the business. These are self-descriptions, not
+   * certifications — do not pair them with certification seals or "certified" wording
+   * unless a certification has been verified.
+   */
+  ownership: ["100% Women-Owned", "Woman Veteran-Owned", "Minority-Owned"],
   address: {
     street: "4327 State Ave",
     city: "Kansas City",
