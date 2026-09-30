@@ -381,6 +381,7 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
@@ -422,4 +423,44 @@ body {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ------------------------------------------------------------------
+   Home hero only (client reference): ink field, chrome type, steel tag
+   ------------------------------------------------------------------ */
+
+/* Near-black industrial field with a faint wine warmth low-left */
+@utility hero-ink {
+  background-color: #0b0b0d;
+  background-image:
+    var(--noise),
+    radial-gradient(70% 80% at 0% 100%, color-mix(in oklab, var(--color-wine-800) 38%, transparent), transparent 70%),
+    linear-gradient(180deg, #15161a 0%, #0a0a0c 100%);
+  background-blend-mode: overlay, normal, normal;
+}
+
+/* Darkens and cools the photograph so it reads as one surface with the ink field */
+@utility hero-ink-grade {
+  background-image:
+    linear-gradient(90deg, rgb(11 11 13 / 0.55) 0%, transparent 40%),
+    linear-gradient(0deg, rgb(11 11 13 / 0.75) 0%, transparent 40%),
+    linear-gradient(0deg, rgb(24 26 30 / 0.3), rgb(24 26 30 / 0.3));
+}
+
+/* Polished-chrome headline type ("THE WORK") */
+@utility chrome-text {
+  background: linear-gradient(180deg, #f6f7f8 0%, #cfd2d7 38%, #858b94 56%, #c9ccd1 78%, #eceef0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark brushed-steel values tag */
+@utility steel-dark-plate {
+  background-color: #34373c;
+  background-image:
+    var(--brushed),
+    linear-gradient(115deg, #5b6068 0%, #2c2f34 48%, #474b52 100%);
+  background-blend-mode: overlay, normal;
+  box-shadow: inset 1px 1px 0 rgb(255 255 255 / 0.22), 0 -20px 40px -20px rgb(0 0 0 / 0.6);
 }

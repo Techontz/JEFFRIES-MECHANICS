@@ -19,9 +19,9 @@ export const metadata = pageMetadata({
 export const revalidate = 120;
 
 const capabilityGallery = [
-  { image: "/images/photos/mechanical-room.jpg", title: "HVAC & mechanical systems", tag: "Mechanical" },
+  { image: "/images/photos/mechanical-ductwork.jpg", title: "HVAC & ductwork", tag: "Mechanical" },
   { image: "/images/photos/electrical-panel.jpg", title: "Panels & controls", tag: "Electrical" },
-  { image: "/images/photos/team-plan-review.jpg", title: "Project coordination", tag: "Construction support" },
+  { image: "/images/photos/specialized-welding.jpg", title: "Welding & fabrication", tag: "Specialized trades" },
   { image: "/images/photos/boiler-room.jpg", title: "Mechanical rooms", tag: "Facility maintenance" },
   { image: "/images/photos/rooftop-hvac.jpg", title: "Rooftop equipment", tag: "Mechanical" },
   { image: "/images/photos/valves-corridor.jpg", title: "Piping & valves", tag: "Mechanical" },
@@ -44,8 +44,8 @@ export default async function OurWorkPage() {
           </>
         }
         intro="Mechanical, electrical and specialized-trade work for commercial facilities, public agencies, institutions and prime contractors across the Kansas City region."
-        image="/images/photos/construction-crane.jpg"
-        imageAlt="Commercial building under construction with a tower crane"
+        image="/images/photos/specialized-welding.jpg"
+        imageAlt="Tradespeople welding in a fabrication shop"
       />
 
       {projects.length > 0 && (

@@ -42,8 +42,8 @@ export default async function CareersPage() {
           </>
         }
         intro="We're building a team of skilled tradespeople and project professionals who take pride in doing the job right."
-        image="/images/photos/team-plan-review.jpg"
-        imageAlt="Two tradeswomen in hard hats and safety vests reviewing plans on site"
+        image="/images/photos/careers-crew.jpg"
+        imageAlt="Three smiling tradeswomen in hard hats and safety vests holding their tools"
         imagePosition="center 30%"
       >
         <ButtonLink href="#apply" arrow size="lg">

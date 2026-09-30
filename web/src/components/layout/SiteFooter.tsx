@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
-import { OwnershipBadges } from "@/components/sections/OwnershipBadges";
 import { Logo } from "@/components/ui/Logo";
 import { company } from "@/content/company";
 import { markets } from "@/content/markets";
@@ -27,8 +26,8 @@ export function SiteFooter() {
       <div className="shell pt-20 pb-10">
         <div className="grid gap-14 lg:grid-cols-[1.3fr_2fr]">
           <div>
-            <Logo tone="dark" tagline className="text-[18px]" />
-            <OwnershipBadges tone="light" stacked className="mt-8" />
+            <Logo tone="dark" className="text-[18px]" />
+            <p className="mt-6 max-w-sm text-sm leading-relaxed">{company.tagline}</p>
 
             <address className="mt-8 space-y-3 text-sm not-italic">
               <p className="flex items-start gap-3">

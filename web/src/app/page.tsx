@@ -2,7 +2,6 @@ import { AboutPreview } from "@/components/sections/AboutPreview";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { Hero } from "@/components/sections/Hero";
 import { ImageDuo } from "@/components/sections/ImageDuo";
-import { OwnershipBadges } from "@/components/sections/OwnershipBadges";
 import { MarketPanels } from "@/components/sections/MarketPanels";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ServiceStrip } from "@/components/sections/ServiceStrip";
@@ -18,11 +17,6 @@ export default function HomePage() {
     <>
       <Hero />
       <ServiceStrip />
-      <div className="bg-white pt-10 sm:pt-12">
-        <Container>
-          <OwnershipBadges className="justify-center border-b border-steel-200 pb-8 sm:pb-10" />
-        </Container>
-      </div>
       <AboutPreview />
       <StatsBand />
       <ImageDuo />

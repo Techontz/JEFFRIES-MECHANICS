@@ -1,80 +1,77 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { company } from "@/content/company";
 import { contractingHref, quoteHref } from "@/content/navigation";
 
+const sectors = ["Commercial", "Public Sector", "Institutional", "Infrastructure", "Specialized Trades"];
+const values = ["People", "Safety", "Quality", "Accountability", "Results"];
+
 /**
- * First viewport: logo/nav (layout) → headline → CTA → photography → steel service strip.
- *
- * Desktop: a deep wine panel carries the type on the left; the photograph owns the right
- * ~two-thirds so the engineer is never under the headline.
- * Below lg: the photograph is a fixed-ratio band directly under the header and the copy
- * stacks beneath it — no viewport-height padding, so there is no empty space above the message.
+ * First viewport, after the client's reference: near-black industrial field, the jobsite
+ * photograph bleeding in from the right, Montserrat headline with a chrome middle line,
+ * and a dark brushed-steel values tag on the right edge. The steel service strip overlaps
+ * the bottom, so the tag sits just above it.
+ * Below lg the photograph is a band under the header and the copy stacks beneath it.
  */
 export function Hero() {
   return (
-    <section className="hero-panel-stack lg:hero-panel relative isolate overflow-hidden lg:flex lg:min-h-[clamp(620px,calc(100svh-210px),860px)] lg:items-center">
-      {/* Photograph — masked (not colour-faded) into the wine panel so there is never a seam */}
-      <div className="relative h-[clamp(230px,62vw,300px)] overflow-hidden [mask-image:linear-gradient(180deg,#000_42%,transparent)] sm:h-[clamp(300px,46vw,380px)] lg:absolute lg:inset-y-0 lg:right-0 lg:left-[34%] lg:h-auto lg:[mask-image:linear-gradient(90deg,transparent,#000_42%)] 2xl:left-[36%]">
+    <section className="hero-ink relative isolate overflow-hidden lg:flex lg:min-h-[clamp(640px,calc(100svh-130px),900px)] lg:items-center">
+      <div className="relative h-[clamp(260px,70vw,360px)] overflow-hidden [mask-image:linear-gradient(180deg,#000_55%,transparent)] sm:h-[clamp(340px,52vw,440px)] lg:absolute lg:inset-y-0 lg:right-0 lg:left-[30%] lg:h-auto lg:[mask-image:linear-gradient(90deg,transparent,#000_34%)]">
         <Image
-          src="/images/photos/hero-tradeswoman.jpg"
-          alt="Tradeswoman in a white hard hat and high-visibility vest standing with arms crossed on a steel-frame construction site"
+          src="/images/photos/hero-jobsite.jpg"
+          alt="Tradeswoman in a white hard hat and high-visibility vest holding a clipboard beside a crew member on a steel-frame jobsite"
           fill
           preload
           quality={85}
-          sizes="(min-width: 1024px) 66vw, 100vw"
-          className="animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover object-[50%_35%] lg:object-[40%_35%]"
+          sizes="(min-width: 1024px) 70vw, 100vw"
+          className="animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover object-[62%_30%] brightness-[0.78] contrast-[1.1] saturate-[0.85] lg:object-[58%_30%]"
         />
-        <div aria-hidden className="absolute inset-0 hero-photo-grade" />
-        <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-1/3 bg-gradient-to-t from-wine-950/80 to-transparent lg:block" />
-        <div aria-hidden className="absolute inset-0 opacity-30 mix-blend-overlay [background-image:var(--noise)]" />
+        <div aria-hidden className="absolute inset-0 hero-ink-grade" />
       </div>
 
-      {/* Wine blade on the right edge */}
-      <div aria-hidden className="absolute inset-y-0 right-0 hidden w-1.5 wine-fill-v lg:block" />
+      {/* Values tag — right edge, just above the service strip */}
+      <div className="steel-dark-plate absolute right-0 bottom-32 z-10 hidden py-5 pr-[clamp(1.5rem,3vw,3.5rem)] pl-20 [clip-path:polygon(52px_0,100%_0,100%_100%,0_100%)] lg:block 2xl:bottom-36">
+        <ul className="space-y-1 font-logo text-[12.5px] font-bold tracking-[0.06em] text-white uppercase [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
+          {values.map((value) => (
+            <li key={value} className="flex items-center gap-3">
+              <span aria-hidden className="h-px w-4 bg-wine-400" />
+              {value}.
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      <Container className="relative -mt-14 pb-24 sm:-mt-20 sm:pb-36 lg:mt-0 lg:pt-16 lg:pb-40 2xl:pb-44">
-        <div className="max-w-xl sm:max-w-2xl lg:max-w-[min(52rem,58%)]">
-
-          <h1 className="font-display text-[clamp(1.95rem,9vw,2.5rem)] leading-[0.95] font-bold tracking-[-0.005em] text-white uppercase sm:text-[clamp(2.75rem,7vw,3.75rem)] lg:text-[clamp(3.5rem,4.9vw,5.75rem)]">
-            <span className="block animate-rise whitespace-nowrap [animation-delay:120ms]">Built for the work</span>
-            <span className="relative isolate mt-1.5 inline-block animate-wipe px-2.5 pt-0.5 pb-1 [animation-delay:420ms] sm:mt-2 sm:px-4 sm:pb-1.5">
-              <span aria-hidden className="absolute inset-0 -z-10 wine-plate [clip-path:polygon(0_0,100%_0,calc(100%-0.2em)_100%,0_100%)]" />
-              that matters.
-            </span>
+      <Container className="relative -mt-20 pb-24 sm:-mt-28 sm:pb-36 lg:mt-0 lg:pt-14 lg:pb-40 2xl:pb-44">
+        <div className="max-w-xl sm:max-w-2xl lg:max-w-[min(44rem,50%)]">
+          <h1 className="font-logo text-[clamp(2.4rem,10.5vw,3.3rem)] leading-[1] font-extrabold tracking-[-0.01em] uppercase [text-shadow:0_2px_24px_rgb(0_0_0/0.45)] sm:text-[clamp(3.3rem,8vw,4.6rem)] lg:text-[clamp(3.6rem,5vw,5.9rem)]">
+            <span className="block animate-rise text-white [animation-delay:120ms]">Built for</span>
+            <span className="block animate-rise chrome-text [animation-delay:240ms]">the work</span>
+            <span className="block animate-rise text-white [animation-delay:360ms]">that matters</span>
           </h1>
 
-          <span aria-hidden className="mt-6 block h-[3px] w-16 animate-rise steel-rule [animation-delay:520ms] sm:mt-8 sm:w-20" />
-
-          <p className="mt-5 max-w-[34rem] animate-rise sm:max-w-[40rem] lg:max-w-[38rem] text-[15px] leading-relaxed text-steel-100/90 [animation-delay:600ms] sm:mt-6 sm:text-[17px] 2xl:max-w-[42rem] 2xl:text-lg">
-            <span className="sm:hidden">{company.summary}</span>
-            <span className="hidden sm:inline">{company.description}</span>
-          </p>
-          <p className="mt-3 hidden max-w-[40rem] animate-rise text-[15px] leading-relaxed text-steel-200/80 [animation-delay:660ms] sm:block lg:max-w-[38rem] 2xl:max-w-[42rem] 2xl:text-base">
-            Backed by seasoned professionals and a performance-focused approach, we bring{" "}
-            <strong className="font-semibold text-white">
-              skilled execution, responsive coordination, disciplined project support, and accountability
-            </strong>{" "}
-            to every qualified opportunity.
+          <p className="mt-6 max-w-[36rem] animate-rise text-[15px] leading-relaxed text-white/90 [animation-delay:480ms] sm:text-[17px] 2xl:text-lg">
+            Jeffries Mechanicals LLC delivers electrical, mechanical, facility, construction-support, and specialized trade
+            capabilities for commercial, institutional, public-sector, and infrastructure environments throughout the Kansas
+            City region.
           </p>
 
-          <div className="mt-7 flex animate-rise flex-col gap-3 [animation-delay:720ms] sm:mt-9 sm:flex-row sm:gap-4">
-            <ButtonLink href={quoteHref} size="lg" arrow className="max-sm:h-[52px]">
+          <div className="mt-8 flex animate-rise flex-col gap-3 [animation-delay:600ms] sm:flex-row sm:gap-4">
+            <ButtonLink href={quoteHref} size="lg" arrow className="font-logo tracking-[0.06em] max-sm:h-[52px]">
               Request a Quote
             </ButtonLink>
-            <ButtonLink href={contractingHref} size="lg" variant="glass" className="max-sm:h-[52px]">
+            <ButtonLink href={contractingHref} size="lg" variant="glass" arrow className="font-logo tracking-[0.06em] max-sm:h-[52px]">
               Contracting Opportunities
             </ButtonLink>
           </div>
 
+          <span aria-hidden className="mt-9 block h-px w-10 animate-rise bg-white/60 [animation-delay:700ms]" />
           <ul
             aria-label="Sectors served"
-            className="mt-7 flex animate-rise flex-wrap items-center gap-y-2 border-t border-white/15 pt-5 font-display text-[10.5px] font-medium tracking-[0.2em] text-steel-200 uppercase [animation-delay:820ms] sm:mt-9 sm:text-xs"
+            className="mt-4 flex animate-rise flex-wrap items-center gap-x-4 gap-y-2 font-logo text-[10.5px] font-bold tracking-[0.05em] whitespace-nowrap text-white uppercase [animation-delay:740ms] sm:gap-x-0 sm:text-[12px] lg:flex-nowrap lg:text-[clamp(10.5px,0.82vw,12.5px)]"
           >
-            {company.sectors.map((sector, index) => (
+            {sectors.map((sector, index) => (
               <li key={sector} className="flex items-center">
-                {index > 0 && <span aria-hidden className="mx-3 h-3 w-px bg-white/30 sm:mx-4" />}
+                {index > 0 && <span aria-hidden className="mx-3.5 hidden h-3 w-px bg-white/45 sm:block" />}
                 {sector}
               </li>
             ))}

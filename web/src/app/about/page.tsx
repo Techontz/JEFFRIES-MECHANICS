@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { FileCheck2, Landmark, ShieldCheck, Users } from "lucide-react";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { ownershipIcons } from "@/components/sections/OwnershipBadges";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StatsBand } from "@/components/sections/StatsBand";
@@ -18,7 +17,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About",
   description:
-    "Jeffries Mechanicals LLC is a 100% women-owned, woman veteran-owned and minority-owned specialized trade contractor in Kansas City, KS, delivering mechanical, electrical and specialized trade work for commercial, institutional, infrastructure and public-sector contracting.",
+    "Jeffries Mechanicals LLC is a Kansas City, KS contractor delivering mechanical, electrical and specialized trade work with the systems and standards commercial and public-sector contracting demands.",
   path: "/about",
 });
 
@@ -28,11 +27,6 @@ const readiness = [
   { icon: Users, title: "Payroll & administration", text: "Payroll and project administration systems designed to meet contract reporting requirements." },
   { icon: Landmark, title: "Public-sector ready", text: "Prepared to participate in municipal, agency and prime-contractor opportunities across the region." },
 ];
-
-function OwnershipIcon({ index }: { index: number }) {
-  const Icon = ownershipIcons[index];
-  return <Icon aria-hidden className="size-7 shrink-0 text-steel-300 sm:size-9" strokeWidth={1.5} />;
-}
 
 export default function AboutPage() {
   return (
@@ -46,9 +40,8 @@ export default function AboutPage() {
           </>
         }
         intro={company.description}
-        image="/images/photos/mechanical-room.jpg"
-        imageAlt="Commercial mechanical room with pumps and piping"
-        imagePosition="center 35%"
+        image="/images/photos/about-leader.jpg"
+        imageAlt="Tradeswoman in a white hard hat and high-visibility vest standing with arms crossed on a steel-frame site"
       />
 
       <section className="relative overflow-x-clip bg-white py-24 lg:py-32">
@@ -84,65 +77,12 @@ export default function AboutPage() {
           <Reveal delay={120} className="relative">
             <div aria-hidden className="absolute -right-4 -bottom-6 h-2/3 w-2/3 -skew-x-[10deg] wine-fill sm:-right-8" />
             <div className="relative aspect-[4/3] overflow-hidden clip-angle-br [--cut:64px]">
-              <Image src="/images/photos/electrician-testing.jpg" alt="Electrician testing a control panel with a multimeter" fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover" />
+              <Image src="/images/photos/plan-review.jpg" alt="Two tradeswomen in hard hats and high-visibility vests reviewing plans together on site" fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover" />
             </div>
             <div className="glass-dark absolute bottom-6 left-6 max-w-[16rem] p-5 text-white">
               <p className="font-display text-xs font-semibold tracking-[0.2em] text-steel-300 uppercase">Headquarters</p>
               <p className="mt-2 text-sm leading-relaxed">{fullAddress}</p>
             </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      <section aria-labelledby="ownership-heading" className="wine-surface relative overflow-hidden py-24 text-white lg:py-32">
-        <span aria-hidden className="absolute inset-x-0 top-0 h-px steel-rule opacity-70" />
-        <div aria-hidden className="absolute -top-28 -left-24 size-96 rotate-45 border border-white/10" />
-
-        <Container className="relative grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
-          <Reveal>
-            <Eyebrow tone="light">Ownership</Eyebrow>
-            <h2 id="ownership-heading" className="mt-5 font-display text-[2.1rem] leading-[1.05] font-bold uppercase sm:text-5xl lg:text-[3.3rem]">
-              {company.ownership.map((item, index) => (
-                <span key={item} className="flex items-center gap-4 sm:gap-5">
-                  <OwnershipIcon index={index} />
-                  {item}
-                  {index < company.ownership.length - 1 && <span className="sr-only">, </span>}
-                </span>
-              ))}
-            </h2>
-            <span aria-hidden className="mt-7 block h-[3px] w-20 steel-rule" />
-          </Reveal>
-
-          <Reveal delay={120} className="space-y-5 text-base leading-relaxed text-white/80 lg:pt-12">
-            <p className="text-lg text-white sm:text-xl">
-              {company.legalName} is a{" "}
-              <strong className="font-semibold">
-                100% women-owned, woman veteran-owned, and minority-owned specialized trade contractor
-              </strong>
-              .
-            </p>
-            <p>
-              Our ownership reflects a foundation of{" "}
-              <strong className="font-semibold text-white">service, discipline, resilience, responsibility, and accountability</strong>
-              —principles that carry directly into how we approach our work, our partnerships, and every opportunity entrusted
-              to our team.
-            </p>
-            <p>
-              Backed by seasoned professionals and skilled tradespeople, Jeffries Mechanicals combines experienced industry
-              capability with a performance-focused approach to commercial, institutional, infrastructure, and public-sector
-              contracting.
-            </p>
-            <p>
-              We actively pursue qualified{" "}
-              <strong className="font-semibold text-white">
-                prime and subcontracting opportunities, government and commercial procurement, supplier-diversity
-                opportunities, strategic partnerships, grants, and business-development opportunities
-              </strong>{" "}
-              aligned with our capabilities.
-            </p>
-            <p className="border-t border-white/15 pt-6 font-display text-base font-bold tracking-[0.14em] text-white uppercase sm:text-lg">
-              Experienced professionals. Disciplined execution. <span className="steel-text">Ready to perform.</span>
-            </p>
           </Reveal>
         </Container>
       </section>
