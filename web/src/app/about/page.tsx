@@ -40,8 +40,8 @@ export default function AboutPage() {
           </>
         }
         intro={company.description}
-        image="/images/photos/about-leader.jpg"
-        imageAlt="Tradeswoman in a white hard hat and high-visibility vest standing with arms crossed on a steel-frame site"
+        image="/images/photos/plant-floor-team.jpg"
+        imageAlt="Engineering team reviewing work on a clean industrial plant floor"
       />
 
       <section className="relative overflow-x-clip bg-white py-24 lg:py-32">
@@ -77,7 +77,7 @@ export default function AboutPage() {
           <Reveal delay={120} className="relative">
             <div aria-hidden className="absolute -right-4 -bottom-6 h-2/3 w-2/3 -skew-x-[10deg] wine-fill sm:-right-8" />
             <div className="relative aspect-[4/3] overflow-hidden clip-angle-br [--cut:64px]">
-              <Image src="/images/photos/plan-review.jpg" alt="Two tradeswomen in hard hats and high-visibility vests reviewing plans together on site" fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover" />
+              <Image src="/images/photos/ceiling-install.jpg" alt="Technician on a lift installing overhead services among red fire-protection pipes" fill sizes="(min-width: 1024px) 45vw, 90vw" className="object-cover" />
             </div>
             <div className="glass-dark absolute bottom-6 left-6 max-w-[16rem] p-5 text-white">
               <p className="font-display text-xs font-semibold tracking-[0.2em] text-steel-300 uppercase">Headquarters</p>

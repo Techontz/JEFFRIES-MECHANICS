@@ -28,8 +28,8 @@ export function AboutPreview() {
 
           <div className="relative aspect-[3/2] overflow-hidden bg-steel-200 shadow-panel sm:aspect-[5/4]">
             <Image
-              src="/images/photos/control-room-team.jpg"
-              alt="Smiling technician in a white hard hat in a plant control room while a colleague works the control desk behind her"
+              src="/images/photos/plant-technicians-duo.jpg"
+              alt="Two technicians discussing equipment together on a plant floor"
               fill
               sizes="(min-width: 1024px) 46vw, 92vw"
               className="object-cover object-[45%_35%]"
