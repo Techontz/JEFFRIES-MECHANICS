@@ -47,8 +47,8 @@ export const markets: Market[] = [
     slug: "facilities",
     title: "Facilities & Property Operations",
     description: "Scheduled maintenance, repairs, upgrades, and project-based facility support.",
-    image: "/images/photos/control-station.jpg",
-    imageAlt: "Technician working at a control station inside an industrial plant",
+    image: "/images/photos/jm-plan-review-pair.jpg",
+    imageAlt: "Jeffries Mechanicals tradeswoman and colleague in hard hats reviewing drawings on a jobsite",
     icon: Building,
   },
   {

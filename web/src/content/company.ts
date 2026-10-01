@@ -2,7 +2,7 @@
  * Single source of truth for company facts shown on the website.
  *
  * Everything here is published, so only add details the business has confirmed.
- * Phone, email and hours come from environment variables and render only when set.
+ * Phone and hours come from environment variables and render only when set; email defaults to the company inbox.
  * The address below was taken from the company's own Airo draft site — confirm it
  * with the owner before launch.
  */
@@ -23,7 +23,7 @@ export const company = {
     country: "US",
   },
   phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || null,
-  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || null,
+  email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || "Info@jeffriesmechanicals.com",
   /** e.g. "Mon–Fri 7:00 AM – 5:00 PM" */
   hours: process.env.NEXT_PUBLIC_COMPANY_HOURS || null,
   serviceArea: "Kansas City regional market",
