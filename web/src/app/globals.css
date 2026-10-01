@@ -442,9 +442,8 @@ body {
 /* Darkens and cools the photograph so it reads as one surface with the ink field */
 @utility hero-ink-grade {
   background-image:
-    linear-gradient(90deg, rgb(11 11 13 / 0.55) 0%, transparent 40%),
-    linear-gradient(0deg, rgb(11 11 13 / 0.75) 0%, transparent 40%),
-    linear-gradient(0deg, rgb(24 26 30 / 0.3), rgb(24 26 30 / 0.3));
+    linear-gradient(90deg, rgb(11 11 13 / 0.35) 0%, transparent 30%),
+    linear-gradient(0deg, rgb(11 11 13 / 0.6) 0%, transparent 28%);
 }
 
 /* Polished-chrome headline type ("THE WORK") */

@@ -31,8 +31,9 @@ export default function ServicesPage() {
           </>
         }
         intro="We deliver mechanical, electrical, facility, and specialized-trade services for commercial facilities, public-sector projects, prime contractors, and organizations requiring dependable performance."
-        image="/images/photos/electrical-panel.jpg"
-        imageAlt="Commercial electrical control panel"
+        image="/images/photos/jm-blueprint-review.jpg"
+        imageAlt="Two Jeffries Mechanicals tradeswomen reviewing drawings on a jobsite with crew behind them"
+        imagePosition="center 35%"
       >
         <nav aria-label="Services on this page" className="flex flex-wrap gap-2">
           {services.map((service) => (

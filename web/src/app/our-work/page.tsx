@@ -44,8 +44,9 @@ export default async function OurWorkPage() {
           </>
         }
         intro="Mechanical, electrical and specialized-trade work for commercial facilities, public agencies, institutions and prime contractors across the Kansas City region."
-        image="/images/photos/specialized-welding.jpg"
-        imageAlt="Tradespeople welding in a fabrication shop"
+        image="/images/photos/jm-pipefitter-wide-v2.jpg"
+        imageAlt="Jeffries Mechanicals pipefitter in a hard hat working on stainless process piping"
+        imagePosition="right center"
       />
 
       {projects.length > 0 && (

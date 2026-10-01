@@ -18,13 +18,13 @@ export function Hero() {
     <section className="hero-ink relative isolate overflow-hidden lg:flex lg:min-h-[clamp(640px,calc(100svh-130px),900px)] lg:items-center">
       <div className="relative h-[clamp(260px,70vw,360px)] overflow-hidden [mask-image:linear-gradient(180deg,#000_55%,transparent)] sm:h-[clamp(340px,52vw,440px)] lg:absolute lg:inset-y-0 lg:right-0 lg:left-[30%] lg:h-auto lg:[mask-image:linear-gradient(90deg,transparent,#000_34%)]">
         <Image
-          src="/images/photos/hero-crew-women-v2.jpg"
-          alt="Two women mechanics and a male colleague in hard hats and high-visibility coveralls"
+          src="/images/photos/jm-hero-tablet.jpg"
+          alt="Jeffries Mechanicals crew lead with a tablet beside teammates working at an electrical installation"
           fill
           preload
           quality={85}
           sizes="(min-width: 1024px) 70vw, 100vw"
-          className="animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover object-[55%_18%] brightness-[0.82] contrast-[1.08] saturate-[0.9] lg:object-[50%_20%]"
+          className="animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover object-[45%_22%] brightness-[0.97] contrast-[1.04] lg:object-[42%_25%]"
         />
         <div aria-hidden className="absolute inset-0 hero-ink-grade" />
       </div>

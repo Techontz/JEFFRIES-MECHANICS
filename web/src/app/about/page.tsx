@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FileCheck2, Landmark, ShieldCheck, Users } from "lucide-react";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { CredentialBand } from "@/components/sections/CredentialBand";
 import { PageHero } from "@/components/sections/PageHero";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { StatsBand } from "@/components/sections/StatsBand";
@@ -40,8 +40,9 @@ export default function AboutPage() {
           </>
         }
         intro={company.description}
-        image="/images/photos/plant-floor-team.jpg"
-        imageAlt="Engineering team reviewing work on a clean industrial plant floor"
+        image="/images/photos/jm-about-leader.jpg"
+        imageAlt="Jeffries Mechanicals leader in a hard hat and safety vest at an industrial facility"
+        imagePosition="70% 30%"
       />
 
       <section className="relative overflow-x-clip bg-white py-24 lg:py-32">
@@ -114,7 +115,7 @@ export default function AboutPage() {
       </section>
 
       <ProcessSection />
-      <CtaBand />
+      <CredentialBand />
     </>
   );
 }

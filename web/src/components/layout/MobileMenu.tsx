@@ -82,7 +82,7 @@ export function MobileMenu({ open, onClose, pathname }: Props) {
 
         <nav aria-label="Mobile" className="mt-10 px-6">
           <ul className="border-t border-white/10">
-            {[{ label: "Home", href: "/" }, ...primaryNav].map((item, index) => {
+            {primaryNav.map((item, index) => {
               const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
 
               return (

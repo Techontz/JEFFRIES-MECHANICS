@@ -28,11 +28,11 @@ export function AboutPreview() {
 
           <div className="relative aspect-[3/2] overflow-hidden bg-steel-200 shadow-panel sm:aspect-[5/4]">
             <Image
-              src="/images/photos/plant-technicians-duo.jpg"
-              alt="Two technicians discussing equipment together on a plant floor"
+              src="/images/photos/jm-crew-four.jpg"
+              alt="Jeffries Mechanicals crew in hard hats and high-visibility vests on a steel-frame jobsite"
               fill
               sizes="(min-width: 1024px) 46vw, 92vw"
-              className="object-cover object-[45%_35%]"
+              className="object-cover object-[40%_30%]"
             />
             <div aria-hidden className="absolute inset-0 bg-gradient-to-tr from-wine-950/45 via-transparent to-transparent" />
             <span aria-hidden className="absolute inset-x-0 bottom-0 h-[3px] wine-bar" />

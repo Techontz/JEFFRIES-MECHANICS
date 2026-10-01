@@ -41,8 +41,8 @@ export const services: Service[] = [
       "Upgrades, maintenance and repair",
       "Project support for institutional facilities",
     ],
-    image: "/images/photos/panel-testing.jpg",
-    imageAlt: "Electrician in a hard hat and face shield testing a distribution panel with a meter",
+    image: "/images/photos/jm-panel-electrician.jpg",
+    imageAlt: "Jeffries Mechanicals electrician in a hard hat and safety glasses working on panel wiring",
     icon: Zap,
   },
   {
