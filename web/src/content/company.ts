@@ -2,7 +2,7 @@
  * Single source of truth for company facts shown on the website.
  *
  * Everything here is published, so only add details the business has confirmed.
- * Phone and hours come from environment variables and render only when set; email defaults to the company inbox.
+ * Hours come from an environment variable and render only when set; phone and email default to the company line and inbox.
  * The address below was taken from the company's own Airo draft site — confirm it
  * with the owner before launch.
  */
@@ -22,13 +22,16 @@ export const company = {
     postalCode: "66102",
     country: "US",
   },
-  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || null,
+  phone: process.env.NEXT_PUBLIC_COMPANY_PHONE || "1 (888) 301-2511",
   email: process.env.NEXT_PUBLIC_COMPANY_EMAIL || "Info@jeffriesmechanicals.com",
   /** e.g. "Mon–Fri 7:00 AM – 5:00 PM" */
   hours: process.env.NEXT_PUBLIC_COMPANY_HOURS || null,
   serviceArea: "Kansas City regional market",
   mapsQuery: "4327 State Ave, Kansas City, KS 66102",
 } as const;
+
+/** Dialable `tel:` link for the company phone (digits only, E.164). */
+export const phoneHref = `tel:+${company.phone.replace(/\D/g, "")}`;
 
 export const fullAddress = `${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}`;
 

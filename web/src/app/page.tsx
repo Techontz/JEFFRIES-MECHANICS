@@ -1,5 +1,6 @@
 import { AboutPreview } from "@/components/sections/AboutPreview";
 import { CtaBand } from "@/components/sections/CtaBand";
+import { FoundationBand } from "@/components/sections/FoundationBand";
 import { Hero } from "@/components/sections/Hero";
 import { ImageDuo } from "@/components/sections/ImageDuo";
 import { MarketPanels } from "@/components/sections/MarketPanels";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Hero />
       <ServiceStrip />
       <AboutPreview />
+      <FoundationBand />
       <StatsBand />
       <ImageDuo />
 

@@ -6,7 +6,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
-import { company, fullAddress } from "@/content/company";
+import { company, fullAddress, phoneHref } from "@/content/company";
 import { quoteHref } from "@/content/navigation";
 import { getFormOptions } from "@/lib/api";
 import { pageMetadata } from "@/lib/seo";
@@ -28,7 +28,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
 
   const channels = [
     { icon: MapPin, label: "Office", value: fullAddress, href: directionsUrl, external: true },
-    ...(company.phone ? [{ icon: Phone, label: "Phone", value: company.phone, href: `tel:${company.phone}`, external: false }] : []),
+    ...(company.phone ? [{ icon: Phone, label: "Phone", value: company.phone, href: phoneHref, external: false }] : []),
     ...(company.email ? [{ icon: Mail, label: "Email", value: company.email, href: `mailto:${company.email}`, external: false }] : []),
     ...(company.hours ? [{ icon: Clock3, label: "Hours", value: company.hours, href: undefined, external: false }] : []),
   ];

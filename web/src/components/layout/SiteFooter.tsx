@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
-import { company } from "@/content/company";
+import { company, phoneHref } from "@/content/company";
 import { markets } from "@/content/markets";
 import { contractingHref, primaryNav, quoteHref } from "@/content/navigation";
 import { services } from "@/content/services";
@@ -40,7 +40,7 @@ export function SiteFooter() {
                 </span>
               </p>
               {company.phone && (
-                <a href={`tel:${company.phone}`} className="flex items-center gap-3 transition-colors hover:text-white">
+                <a href={phoneHref} className="flex items-center gap-3 transition-colors hover:text-white">
                   <Phone className="size-4 text-wine-400" aria-hidden /> {company.phone}
                 </a>
               )}
