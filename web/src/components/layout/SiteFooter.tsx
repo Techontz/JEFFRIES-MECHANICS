@@ -59,7 +59,7 @@ export function SiteFooter() {
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
             {columns.map((column, index) => (
-              <nav key={column.title} aria-label={`Footer — ${column.title}`} className={index === 2 ? "col-span-2 sm:col-span-1" : undefined}>
+              <nav key={column.title} aria-label={`Footer: ${column.title}`} className={index === 2 ? "col-span-2 sm:col-span-1" : undefined}>
                 <h2 className="font-display text-xs font-semibold tracking-[0.24em] text-steel-200 uppercase">{column.title}</h2>
                 <span aria-hidden className="mt-3 block h-[2px] w-8 bg-wine-600" />
                 <ul className="mt-5 space-y-3 text-sm">

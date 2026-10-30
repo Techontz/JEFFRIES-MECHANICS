@@ -11,7 +11,7 @@ export function FormError({ result }: { result: SubmissionResult | null }) {
       <CircleAlert className="mt-0.5 size-5 shrink-0" aria-hidden />
       <p>
         {result.message}
-        {result.kind === "validation" && result.errors.form_token && " We've refreshed the form — please submit again."}
+        {result.kind === "validation" && result.errors.form_token && " We've refreshed the form. Please submit again."}
       </p>
     </div>
   );

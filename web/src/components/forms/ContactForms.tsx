@@ -190,7 +190,7 @@ function ServiceForm({ options }: { options: FormOptions }) {
         value={data.urgency}
         onChange={set("urgency")}
         options={options.urgencies.map(({ value, label }) => {
-          const [title, description] = label.split(" — ");
+          const [title, description] = label.split(/: | \u2014 /);
           return { value, label: title, description };
         })}
         error={errors.urgency}

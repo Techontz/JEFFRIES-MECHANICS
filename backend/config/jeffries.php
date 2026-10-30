@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Jeffries Mechanicals — business configuration
+| Jeffries Mechanicals: business configuration
 |--------------------------------------------------------------------------
 |
 | Single source of truth for company details and the option lists used by

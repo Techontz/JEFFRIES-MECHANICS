@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
 });
 
 const assurances = [
-  { icon: ShieldCheck, text: "Reviewed by our team — never sold or shared" },
+  { icon: ShieldCheck, text: "Reviewed by our team, never sold or shared" },
   { icon: FileCheck2, text: "Attach drawings, specs or photos up to 15 MB" },
   { icon: Clock3, text: "Takes about three minutes" },
 ];

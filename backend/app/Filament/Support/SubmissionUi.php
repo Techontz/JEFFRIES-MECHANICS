@@ -109,7 +109,7 @@ class SubmissionUi
             ->label('Email')
             ->icon(Heroicon::OutlinedEnvelope)
             ->color('gray')
-            ->url(fn (Model $record) => 'mailto:'.$record->email.'?subject='.rawurlencode("Jeffries Mechanicals — {$record->reference}"));
+            ->url(fn (Model $record) => 'mailto:'.$record->email.'?subject='.rawurlencode("Jeffries Mechanicals: {$record->reference}"));
     }
 
     public static function downloadAction(string $pathAttribute, string $nameAttribute, string $label): Action
@@ -134,14 +134,14 @@ class SubmissionUi
             ->columns(2)
             ->schema([
                 TextEntry::make('name')->weight('bold'),
-                TextEntry::make('company')->placeholder('—'),
+                TextEntry::make('company')->placeholder('-'),
                 TextEntry::make('email')
                     ->icon(Heroicon::OutlinedEnvelope)
                     ->copyable()
                     ->url(fn (Model $record) => "mailto:{$record->email}"),
                 TextEntry::make('phone')
                     ->icon(Heroicon::OutlinedPhone)
-                    ->placeholder('—')
+                    ->placeholder('-')
                     ->copyable()
                     ->url(fn (Model $record) => $record->phone ? 'tel:'.preg_replace('/[^\d+]/', '', $record->phone) : null),
                 ...$extra,

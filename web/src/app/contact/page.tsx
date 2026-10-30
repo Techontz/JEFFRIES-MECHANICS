@@ -44,7 +44,7 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
             the work
           </>
         }
-        intro="Questions, bid invitations, teaming opportunities or a building system that needs attention — reach the Jeffries Mechanicals team here."
+        intro="Reach the Jeffries Mechanicals team here with questions, bid invitations, teaming opportunities or a building system that needs attention."
         image="/images/photos/commercial-office.jpg"
         imageAlt="Commercial office building"
       />

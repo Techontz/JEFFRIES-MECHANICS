@@ -347,7 +347,7 @@ export function QuoteWizard({ options, initialService }: Props) {
                 required
                 rows={7}
                 maxLength={5000}
-                hint="Scope, equipment, square footage, schedule constraints, bid dates — anything that helps us price accurately."
+                hint="Scope, equipment, square footage, schedule constraints, bid dates, or anything that helps us price accurately."
                 placeholder="e.g. Replace two 20-ton rooftop units and associated ductwork at a 30,000 sq ft municipal building. Work must be completed after hours."
               />
               <FileField
@@ -372,7 +372,7 @@ export function QuoteWizard({ options, initialService }: Props) {
             <CircleAlert className="mt-0.5 size-5 shrink-0" aria-hidden />
             <p>
               {result.message}
-              {result.kind === "validation" && result.errors.form_token && " We've refreshed the form — please press Submit again."}
+              {result.kind === "validation" && result.errors.form_token && " We've refreshed the form. Please press Submit again."}
             </p>
           </div>
         )}
@@ -470,7 +470,7 @@ function StepRail({ current, onSelect }: { current: number; onSelect: (index: nu
 
       <div className="glass-dark mt-8 p-5 text-sm leading-relaxed text-steel-300">
         <p className="font-display text-xs font-semibold tracking-[0.2em] text-white uppercase">What happens next</p>
-        <p className="mt-2">Every request is reviewed by our team — not a call center. We&apos;ll follow up to confirm scope before pricing.</p>
+        <p className="mt-2">Every request is reviewed by our team, not a call center. We&apos;ll follow up to confirm scope before pricing.</p>
       </div>
     </aside>
   );
@@ -483,7 +483,7 @@ function ReviewSummary({ data, attachment, onEdit }: { data: QuoteData; attachme
       title: "Contact",
       rows: [
         ["Name", data.name],
-        ["Company", data.company || "—"],
+        ["Company", data.company || "Not provided"],
         ["Email", data.email],
         ["Phone", data.phone],
         ["Preferred contact", data.preferred_contact || "No preference"],

@@ -61,7 +61,7 @@ export default function AboutPage() {
               <p className="text-base text-steel-600">
                 Successful contracting requires more than technical capability. It requires preparation, communication,
                 documentation, accountability, and disciplined execution. We operate with the systems and standards that
-                commercial and public-sector contracting demands — so owners, agencies and prime contractors can rely on
+                commercial and public-sector contracting demands, so owners, agencies and prime contractors can rely on
                 the scope we commit to.
               </p>
             </div>

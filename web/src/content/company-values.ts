@@ -38,7 +38,7 @@ export const processSteps = [
   },
   {
     title: "Scope & Pricing",
-    description: "A clear, documented proposal that defines what is included — and what is not.",
+    description: "A clear, documented proposal that defines what is included, and what is not.",
   },
   {
     title: "Execution",

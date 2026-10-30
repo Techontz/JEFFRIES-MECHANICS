@@ -29,7 +29,7 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Utility bar — wine tag plate + steel type, reads as part of the header */}
+      {/* Utility bar: wine tag plate + steel type, reads as part of the header */}
       <div className="charcoal relative z-50 hidden h-[38px] overflow-hidden text-[11px] text-steel-300 lg:block">
         <span aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-white/10" />
         <div className="shell flex h-full items-center justify-between">
@@ -71,7 +71,7 @@ export function SiteHeader() {
             scrolled ? "h-16 lg:h-[70px]" : "h-16 sm:h-[76px] lg:h-[92px]",
           )}
         >
-          <Link href="/" className="relative shrink-0" aria-label={`${company.name} — home`}>
+          <Link href="/" className="relative shrink-0" aria-label={`${company.name} home`}>
             <Logo
               priority
               className={cn("transition-[font-size] duration-500", scrolled ? "text-[12.5px] lg:text-[13.5px]" : "text-[12.5px] sm:text-[14.5px] lg:text-[17px]")}

@@ -77,7 +77,7 @@ export function AboutPreview() {
             </p>
             <p className="mt-3 text-[15px] leading-relaxed text-steel-600">
               {company.legalName} operates with the systems and standards that commercial and public-sector contracting
-              demands — bringing mechanical, electrical, and specialized-trade capability to projects across Kansas and the
+              demands, bringing mechanical, electrical, and specialized-trade capability to projects across Kansas and the
               surrounding region.
             </p>
           </Reveal>

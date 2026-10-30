@@ -95,7 +95,7 @@ class SubmissionController extends Controller
             'reference' => $submission->reference,
             'duplicate' => ! $created,
             'message' => $created
-                ? 'Thank you — your '.strtolower($submission::submissionLabel()).' has been received.'
+                ? 'Thank you. Your '.strtolower($submission::submissionLabel()).' has been received.'
                 : 'We already have this request on file and will be in touch shortly.',
         ], $created ? 201 : 200);
     }
@@ -106,7 +106,7 @@ class SubmissionController extends Controller
         return response()->json([
             'reference' => $prefix.'-'.now()->format('ymd').'-'.Str::upper(Str::random(5)),
             'duplicate' => false,
-            'message' => 'Thank you — your request has been received.',
+            'message' => 'Thank you. Your request has been received.',
         ], 201);
     }
 }

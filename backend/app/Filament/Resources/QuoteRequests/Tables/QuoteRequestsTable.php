@@ -30,7 +30,7 @@ class QuoteRequestsTable
                 TextColumn::make('service')->searchable()->wrap(),
                 TextColumn::make('market')->toggleable(),
                 TextColumn::make('project_location')->label('Location')->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('attachment_name')->label('File')->icon(Heroicon::OutlinedPaperClip)->limit(18)->placeholder('—')->toggleable(),
+                TextColumn::make('attachment_name')->label('File')->icon(Heroicon::OutlinedPaperClip)->limit(18)->placeholder('-')->toggleable(),
                 SubmissionUi::statusColumn(),
                 SubmissionUi::receivedColumn(),
             ])

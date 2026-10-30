@@ -10,7 +10,7 @@ export function ProcessSection() {
         <SectionHeading
           eyebrow="How we work"
           title="From opportunity review to closeout"
-          intro="Clear communication at every stage — so owners, agencies and prime contractors always know where their scope stands."
+          intro="Clear communication at every stage, so owners, agencies and prime contractors always know where their scope stands."
         />
 
         <ol className="relative mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">

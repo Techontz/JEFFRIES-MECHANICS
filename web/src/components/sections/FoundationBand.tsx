@@ -28,7 +28,7 @@ export function FoundationBand() {
           </h2>
           <span aria-hidden className="mx-auto mt-7 block h-[3px] w-28 steel-rule" />
           <p className="mx-auto mt-7 max-w-3xl text-base leading-relaxed text-white sm:text-lg">
-            Jeffries Mechanicals LLC is a proud woman-owned, veteran-owned specialized trade contractor — delivering electrical,
+            Jeffries Mechanicals LLC is a proud woman-owned, veteran-owned specialized trade contractor, delivering electrical,
             mechanical, and construction-support capability across the Kansas City metropolitan region and communities throughout
             Illinois.
           </p>

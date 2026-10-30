@@ -67,7 +67,7 @@ export default async function OurWorkPage() {
           <SectionHeading
             eyebrow="In the field"
             title="The work we're built for"
-            intro="A look at the systems, spaces and trade work behind our capabilities — from mechanical rooms and rooftop equipment to panels, piping and fabrication."
+            intro="A look at the systems, spaces and trade work behind our capabilities, from mechanical rooms and rooftop equipment to panels, piping and fabrication."
           />
           <div className="mt-14 grid auto-rows-[220px] grid-cols-2 gap-3 sm:auto-rows-[260px] lg:grid-cols-4 lg:gap-4">
             {capabilityGallery.map((item, index) => (

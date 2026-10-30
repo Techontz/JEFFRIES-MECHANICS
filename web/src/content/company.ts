@@ -3,7 +3,7 @@
  *
  * Everything here is published, so only add details the business has confirmed.
  * Hours come from an environment variable and render only when set; phone and email default to the company line and inbox.
- * The address below was taken from the company's own Airo draft site — confirm it
+ * The address below was taken from the company's own Airo draft site; confirm it
  * with the owner before launch.
  */
 export const company = {
@@ -35,4 +35,4 @@ export const phoneHref = `tel:+${company.phone.replace(/\D/g, "")}`;
 
 export const fullAddress = `${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}`;
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";

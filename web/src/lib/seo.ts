@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { company, siteUrl } from "@/content/company";
 
-const ogImage = { url: "/og-image.jpg", width: 1200, height: 630, alt: `${company.name} — Built for the work that matters` };
+const ogImage = { url: "/og-image.jpg", width: 1200, height: 630, alt: `${company.name} | Built for the work that matters` };
 
 /** Per-page metadata with consistent Open Graph defaults. */
 export function pageMetadata({ title, description, path }: { title: string; description: string; path: string }): Metadata {

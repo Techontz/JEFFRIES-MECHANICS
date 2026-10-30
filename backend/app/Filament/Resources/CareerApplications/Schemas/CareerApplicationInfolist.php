@@ -18,7 +18,7 @@ class CareerApplicationInfolist
             ->components([
                 Group::make([
                     SubmissionUi::contactSection([
-                        TextEntry::make('location')->icon(Heroicon::OutlinedMapPin)->placeholder('—'),
+                        TextEntry::make('location')->icon(Heroicon::OutlinedMapPin)->placeholder('-'),
                     ]),
                     Section::make('Application')
                         ->icon(Heroicon::OutlinedIdentification)

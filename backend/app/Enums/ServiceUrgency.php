@@ -14,9 +14,9 @@ enum ServiceUrgency: string implements HasColor, HasLabel
     public function getLabel(): string
     {
         return match ($this) {
-            self::Routine => 'Routine — schedule at next availability',
-            self::Priority => 'Priority — within 48 hours',
-            self::Emergency => 'Emergency — system down',
+            self::Routine => 'Routine: schedule at next availability',
+            self::Priority => 'Priority: within 48 hours',
+            self::Emergency => 'Emergency: system down',
         };
     }
 

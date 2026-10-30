@@ -9,7 +9,7 @@ class SubmissionsChart extends ChartWidget
 {
     protected static ?int $sort = 4;
 
-    protected ?string $heading = 'Website submissions — last 30 days';
+    protected ?string $heading = 'Website submissions (last 30 days)';
 
     protected int|string|array $columnSpan = 'full';
 

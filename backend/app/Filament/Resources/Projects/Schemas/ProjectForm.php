@@ -13,7 +13,7 @@ use Filament\Support\Icons\Heroicon;
 
 class ProjectForm
 {
-    /** Web-safe raster formats only — no SVG (script-capable) uploads. */
+    /** Web-safe raster formats only; no SVG (script-capable) uploads. */
     private const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
 
     public static function configure(Schema $schema): Schema

@@ -29,7 +29,7 @@ export function Hero() {
         <div aria-hidden className="absolute inset-0 hero-ink-grade" />
       </div>
 
-      {/* Values tag — right edge, just above the service strip */}
+      {/* Values tag: right edge, just above the service strip */}
       <div className="steel-dark-plate absolute right-0 bottom-32 z-10 hidden py-5 pr-[clamp(1.5rem,3vw,3.5rem)] pl-20 [clip-path:polygon(52px_0,100%_0,100%_100%,0_100%)] lg:block 2xl:bottom-36">
         <ul className="space-y-1 font-logo text-[12.5px] font-bold tracking-[0.06em] text-white uppercase [text-shadow:0_1px_2px_rgb(0_0_0/0.5)]">
           {values.map((value) => (

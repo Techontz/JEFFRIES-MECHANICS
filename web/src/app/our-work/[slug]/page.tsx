@@ -85,7 +85,7 @@ export default async function ProjectPage({ params }: PageProps<"/our-work/[slug
                 <Reveal key={src} delay={(index % 3) * 80} className={index === 0 ? "relative col-span-2 row-span-2 overflow-hidden bg-steel-200" : "relative overflow-hidden bg-steel-200"}>
                   <Image
                     src={src}
-                    alt={`${project.title} — photo ${index + 1}`}
+                    alt={`${project.title}, photo ${index + 1}`}
                     fill
                     unoptimized={isLocalApi}
                     sizes="(min-width: 1024px) 40vw, 50vw"

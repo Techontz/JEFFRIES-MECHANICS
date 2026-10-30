@@ -24,7 +24,7 @@ export function CareerForm({ options, openings }: { options: FormOptions; openin
 
   // Openings are submitted by id; general trades by name.
   const positionOptions = [
-    ...openings.map((opening) => ({ value: `opening:${opening.id}`, label: `${opening.title} — ${opening.employment_type}` })),
+    ...openings.map((opening) => ({ value: `opening:${opening.id}`, label: `${opening.title} (${opening.employment_type})` })),
     ...options.trades.map((trade) => ({ value: trade, label: `${trade} (general application)` })),
   ];
 

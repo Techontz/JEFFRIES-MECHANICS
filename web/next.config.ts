@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const apiUrl = new URL(process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8110");
+const apiUrl = new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:8110");
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },

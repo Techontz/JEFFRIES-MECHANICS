@@ -47,7 +47,7 @@ function Panel({ market, index, linked }: { market: Market; index: number; linke
   const className = "group relative block h-[420px] overflow-hidden bg-ink clip-angle-tr [--cut:56px] lg:h-[460px]";
 
   return linked ? (
-    <Link href={`/industries#${market.slug}`} className={className} aria-label={`${market.title} — ${market.description}`}>
+    <Link href={`/industries#${market.slug}`} className={className} aria-label={`${market.title}: ${market.description}`}>
       {content}
     </Link>
   ) : (

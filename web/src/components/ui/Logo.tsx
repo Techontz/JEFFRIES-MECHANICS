@@ -7,7 +7,7 @@ type Props = {
   tone?: "light" | "dark";
   /** Show the "Electrical | Mechanical | …" line under the name. */
   tagline?: boolean;
-  /** Set a font-size (e.g. text-[16px]) — the mark and type are sized in em from it. */
+  /** Set a font-size (e.g. text-[16px]); the mark and type are sized in em from it. */
   className?: string;
   priority?: boolean;
 };

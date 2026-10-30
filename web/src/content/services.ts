@@ -16,7 +16,7 @@ export const services: Service[] = [
   {
     slug: "mechanical",
     title: "Mechanical Services",
-    short: "HVAC, piping and mechanical systems — installed, maintained and repaired.",
+    short: "HVAC, piping and mechanical systems installed, maintained and repaired.",
     description:
       "Mechanical contracting support, installation, maintenance, repair, and project-based services for commercial and facility environments.",
     scope: [

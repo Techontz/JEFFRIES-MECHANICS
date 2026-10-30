@@ -56,7 +56,7 @@ class SubmissionReceived extends Notification
         $submission = $this->submission;
 
         return (new MailMessage)
-            ->subject("New {$submission::submissionLabel()} — {$submission->reference}")
+            ->subject("New {$submission::submissionLabel()}: {$submission->reference}")
             ->greeting('New website submission')
             ->line("{$submission->submitterName()} submitted a ".strtolower($submission::submissionLabel()).'.')
             ->line($submission->submissionSummary())

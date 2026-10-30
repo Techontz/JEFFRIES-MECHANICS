@@ -5,7 +5,7 @@ const states = ["Kansas", "Missouri", "Illinois"];
 
 const serviceAreas = [
   {
-    title: "Kansas City Metro — KS & MO",
+    title: "Kansas City Metro (KS & MO)",
     places: [
       "Kansas City, KS",
       "Kansas City, MO",
@@ -58,7 +58,7 @@ export function CredentialBand() {
           </h2>
           <span aria-hidden className="mx-auto mt-7 block h-[3px] w-28 steel-rule" />
           <p className="mx-auto mt-7 max-w-3xl text-base leading-relaxed text-white sm:text-lg">
-            Jeffries Mechanicals LLC is a proud woman-owned, veteran-owned specialized trade contractor — delivering electrical,
+            Jeffries Mechanicals LLC is a proud woman-owned, veteran-owned specialized trade contractor, delivering electrical,
             mechanical, and construction-support capability across the Kansas City metropolitan region and communities throughout
             Illinois.
           </p>
@@ -97,8 +97,8 @@ export function CredentialBand() {
             Don’t see your location?{" "}
             <strong className="font-bold text-white">
               Our workforce is ready, willing, and able to travel beyond these service areas
-            </strong>{" "}
-            — mobilizing wherever the project takes us to meet client and contract requirements.
+            </strong>
+            , mobilizing wherever the project takes us to meet client and contract requirements.
           </p>
           <p className="mt-6 font-mono text-[11px] tracking-[0.16em] text-white uppercase sm:text-xs">
             Serving commercial, public-sector &amp; institutional projects across the region &amp; beyond
