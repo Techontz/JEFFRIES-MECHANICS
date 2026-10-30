@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, Phone } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
-import { company, fullAddress } from "@/content/company";
+import { company, fullAddress, phoneHref } from "@/content/company";
 import { contractingHref, primaryNav, quoteHref } from "@/content/navigation";
 import { cn } from "@/lib/cn";
 import { MobileMenu } from "./MobileMenu";
@@ -38,11 +38,19 @@ export function SiteHeader() {
             {company.tagline}
           </p>
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-2">
+            <a
+              href={phoneHref}
+              className="flex items-center gap-2 font-display text-[12px] font-semibold tracking-[0.14em] text-white transition-colors hover:text-wine-400"
+            >
+              <Phone className="size-3.5 text-wine-500" aria-hidden />
+              {company.phone}
+            </a>
+            <span aria-hidden className="h-3.5 w-px bg-steel-600" />
+            <span className="hidden items-center gap-2 xl:flex">
               <MapPin className="size-3.5 text-wine-500" aria-hidden />
               {fullAddress}
             </span>
-            <span aria-hidden className="h-3.5 w-px bg-steel-600" />
+            <span aria-hidden className="hidden h-3.5 w-px bg-steel-600 xl:block" />
             <Link
               href={contractingHref}
               className="group flex items-center gap-2 font-display font-medium tracking-[0.2em] uppercase transition-colors hover:text-white"
@@ -107,6 +115,13 @@ export function SiteHeader() {
                 Get a Quote
               </ButtonLink>
             </div>
+            <a
+              href={phoneHref}
+              aria-label={`Call ${company.name} at ${company.phone}`}
+              className="grid size-11 place-items-center border border-steel-300 bg-gradient-to-b from-white to-steel-100 text-wine-600 transition-colors hover:border-wine-600 sm:size-12 lg:hidden"
+            >
+              <Phone className="size-[18px]" aria-hidden />
+            </a>
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
