@@ -11,12 +11,11 @@ type Props = {
   imageAlt?: string;
   imagePosition?: string;
   /** Set for backend-hosted photos when the API runs on a local address. */
-  unoptimized?: boolean;
   children?: React.ReactNode;
 };
 
 /** Shorter cinematic hero for interior pages, closing on an angled steel edge. */
-export function PageHero({ eyebrow, title, intro, image, imageAlt = "", imagePosition = "center", unoptimized, children }: Props) {
+export function PageHero({ eyebrow, title, intro, image, imageAlt = "", imagePosition = "center", children }: Props) {
   return (
     <section className="relative isolate overflow-hidden bg-ink pt-20 pb-28 sm:pt-28 sm:pb-36 lg:pt-32 lg:pb-44">
       <Image
@@ -24,7 +23,6 @@ export function PageHero({ eyebrow, title, intro, image, imageAlt = "", imagePos
         alt={imageAlt}
         fill
         preload
-        unoptimized={unoptimized}
         sizes="100vw"
         style={{ objectPosition: imagePosition }}
         className="-z-20 animate-[heroZoom_2.4s_var(--ease-industrial)_both] object-cover"

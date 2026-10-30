@@ -4,8 +4,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProjectCard } from "@/components/sections/ProjectCard";
-import { getProjects } from "@/lib/api";
+import { ProjectPortfolio } from "@/components/sections/ProjectPortfolio";
 import { cn } from "@/lib/cn";
 import { pageMetadata } from "@/lib/seo";
 
@@ -15,8 +14,6 @@ export const metadata = pageMetadata({
     "The mechanical, electrical, maintenance and specialized-trade work Jeffries Mechanicals delivers for commercial, institutional and public-sector clients.",
   path: "/our-work",
 });
-
-export const revalidate = 120;
 
 const capabilityGallery = [
   { image: "/images/photos/mechanical-ductwork.jpg", title: "HVAC & ductwork", tag: "Mechanical" },
@@ -29,9 +26,7 @@ const capabilityGallery = [
   { image: "/images/photos/infrastructure-structure.jpg", title: "Infrastructure support", tag: "Construction support" },
 ];
 
-export default async function OurWorkPage() {
-  const projects = await getProjects();
-
+export default function OurWorkPage() {
   return (
     <>
       <PageHero
@@ -49,20 +44,9 @@ export default async function OurWorkPage() {
         imagePosition="right center"
       />
 
-      {projects.length > 0 && (
-        <section className="bg-white py-24 lg:py-32">
-          <Container>
-            <SectionHeading eyebrow="Project portfolio" title="Selected projects" />
-            <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} featured={index === 0 && project.is_featured} />
-              ))}
-            </div>
-          </Container>
-        </section>
-      )}
+      <ProjectPortfolio />
 
-      <section className={cn("py-24 lg:py-32", projects.length ? "steel-wash" : "bg-white")}>
+      <section className="steel-wash py-24 lg:py-32">
         <Container>
           <SectionHeading
             eyebrow="In the field"

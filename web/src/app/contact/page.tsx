@@ -1,6 +1,7 @@
+import { Suspense } from "react";
 import { ArrowUpRight, Clock3, FileText, Mail, MapPin, Phone } from "lucide-react";
-import { ContactForms } from "@/components/forms/ContactForms";
-import { FormUnavailable } from "@/components/forms/FormUnavailable";
+import { FormLoading } from "@/components/forms/FormLoading";
+import { ContactFormPanel } from "@/components/forms/LiveForms";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -8,7 +9,6 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { company, fullAddress, phoneHref } from "@/content/company";
 import { quoteHref } from "@/content/navigation";
-import { getFormOptions } from "@/lib/api";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -21,8 +21,7 @@ function ChannelTag({ href, ...props }: React.ComponentProps<"a">) {
   return href ? <a href={href} {...props} /> : <div className={props.className}>{props.children}</div>;
 }
 
-export default async function ContactPage({ searchParams }: PageProps<"/contact">) {
-  const [options, params] = await Promise.all([getFormOptions(), searchParams]);
+export default function ContactPage() {
   const mapUrl = `https://www.google.com/maps?q=${encodeURIComponent(company.mapsQuery)}&output=embed`;
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(company.mapsQuery)}`;
 
@@ -89,15 +88,9 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
 
           <Reveal delay={100} className="relative self-start bg-white shadow-panel ring-1 ring-steel-200">
             <span aria-hidden className="absolute inset-x-0 top-0 z-10 h-[3px] wine-bar" />
-            {options ? (
-              <ContactForms
-                options={options}
-                initialTab={params.type === "service" ? "service" : "general"}
-                initialSubject={typeof params.subject === "string" ? params.subject : ""}
-              />
-            ) : (
-              <FormUnavailable />
-            )}
+            <Suspense fallback={<FormLoading />}>
+              <ContactFormPanel />
+            </Suspense>
           </Reveal>
         </Container>
       </section>

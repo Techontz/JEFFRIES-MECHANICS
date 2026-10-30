@@ -1,6 +1,6 @@
-import { Briefcase, GraduationCap, HardHat, MapPin, ShieldCheck, Users } from "lucide-react";
-import { CareerForm } from "@/components/forms/CareerForm";
-import { FormUnavailable } from "@/components/forms/FormUnavailable";
+import { GraduationCap, HardHat, ShieldCheck, Users } from "lucide-react";
+import { CareerFormPanel } from "@/components/forms/LiveForms";
+import { JobOpenings } from "@/components/sections/JobOpenings";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -8,7 +8,6 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { HexIcon } from "@/components/ui/HexIcon";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { getFormOptions, getJobOpenings } from "@/lib/api";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -18,8 +17,6 @@ export const metadata = pageMetadata({
   path: "/careers",
 });
 
-export const revalidate = 120;
-
 const values = [
   { icon: ShieldCheck, title: "Safety first", text: "Every jobsite, every shift. Safe work is the standard, not the exception." },
   { icon: HardHat, title: "Skilled trades", text: "Mechanical, electrical and specialized work on commercial and public-sector projects." },
@@ -27,9 +24,7 @@ const values = [
   { icon: Users, title: "Accountable team", text: "Clear expectations, clear communication, and people who own their work." },
 ];
 
-export default async function CareersPage() {
-  const [options, openings] = await Promise.all([getFormOptions(), getJobOpenings()]);
-
+export default function CareersPage() {
   return (
     <>
       <PageHero
@@ -68,31 +63,7 @@ export default async function CareersPage() {
 
       <section className="steel-wash py-24 lg:py-28">
         <Container>
-          <SectionHeading eyebrow="Open positions" title={openings.length ? "Current openings" : "No posted openings right now"} intro={openings.length ? undefined : "We're always interested in hearing from skilled tradespeople. Submit a general application below and we'll keep it on file for upcoming work."} />
-          {openings.length > 0 && (
-            <ul className="mt-12 grid gap-4">
-              {openings.map((opening, index) => (
-                <Reveal as="li" key={opening.id} delay={index * 60} className="group flex flex-col gap-4 border border-steel-200 bg-white p-6 transition-shadow hover:shadow-lift sm:flex-row sm:items-center sm:p-8">
-                  <div className="flex-1">
-                    <p className="font-display text-xs font-semibold tracking-[0.2em] text-wine-600 uppercase">{opening.trade}</p>
-                    <h3 className="mt-1 font-display text-2xl font-bold text-steel-950 uppercase">{opening.title}</h3>
-                    <p className="mt-2 text-sm text-steel-600">{opening.summary}</p>
-                    <p className="mt-3 flex flex-wrap gap-4 text-xs text-steel-500">
-                      <span className="flex items-center gap-1.5">
-                        <MapPin className="size-3.5 text-wine-600" aria-hidden /> {opening.location}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Briefcase className="size-3.5 text-wine-600" aria-hidden /> {opening.employment_type}
-                      </span>
-                    </p>
-                  </div>
-                  <ButtonLink href="#apply" variant="outline" arrow>
-                    Apply
-                  </ButtonLink>
-                </Reveal>
-              ))}
-            </ul>
-          )}
+          <JobOpenings />
         </Container>
       </section>
 
@@ -109,7 +80,7 @@ export default async function CareersPage() {
           </Reveal>
           <div className="relative bg-white p-6 shadow-panel ring-1 ring-steel-200 sm:p-10">
             <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] wine-bar" />
-            {options ? <CareerForm options={options} openings={openings} /> : <FormUnavailable />}
+            <CareerFormPanel />
           </div>
         </Container>
       </section>

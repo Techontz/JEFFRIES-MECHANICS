@@ -1,36 +1,54 @@
-import type { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import { ArrowLeft, CalendarDays, MapPin, Wrench } from "lucide-react";
-import { CtaBand } from "@/components/sections/CtaBand";
+import { FormLoading } from "@/components/forms/FormLoading";
 import { PageHero } from "@/components/sections/PageHero";
 import { projectCover } from "@/components/sections/ProjectCard";
+import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
-import { getProject, isLocalApi } from "@/lib/api";
-import { pageMetadata } from "@/lib/seo";
+import { company } from "@/content/company";
+import { getProject, type Project } from "@/lib/api";
+import { useApi } from "@/lib/useApi";
 
-export const revalidate = 120;
+/** A portfolio project, loaded live by `?slug=` so projects added in the admin appear without a rebuild. */
+export function ProjectDetail() {
+  const slug = useSearchParams().get("slug") ?? "";
+  const state = useApi<Project>(() => (slug ? getProject(slug) : Promise.resolve(null)), slug);
 
-export async function generateMetadata({ params }: PageProps<"/our-work/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
-  const project = await getProject(slug);
+  const title = state.status === "ready" ? state.data.title : null;
 
-  return project
-    ? pageMetadata({ title: project.title, description: project.summary, path: `/our-work/${project.slug}` })
-    : { title: "Project not found", robots: { index: false } };
-}
+  useEffect(() => {
+    if (title) {
+      document.title = `${title} | ${company.name}`;
+    }
+  }, [title]);
 
-export default async function ProjectPage({ params }: PageProps<"/our-work/[slug]">) {
-  const { slug } = await params;
-  const project = await getProject(slug);
-
-  if (!project) {
-    notFound();
+  if (state.status === "loading") {
+    return <FormLoading label="Loading project" />;
   }
 
+  if (state.status === "error") {
+    return (
+      <section className="bg-white py-28 text-center">
+        <Container>
+          <Eyebrow>Our Work</Eyebrow>
+          <h1 className="mt-5 font-display text-4xl font-bold text-steel-950 uppercase sm:text-5xl">Project not found</h1>
+          <p className="mx-auto mt-5 max-w-md text-steel-600">This project may have been removed or renamed.</p>
+          <ButtonLink href="/our-work" arrow className="mt-8">
+            All projects
+          </ButtonLink>
+        </Container>
+      </section>
+    );
+  }
+
+  const project = state.data;
   const cover = projectCover(project);
   const facts = [
     { icon: Wrench, label: "Service", value: project.service },
@@ -40,7 +58,7 @@ export default async function ProjectPage({ params }: PageProps<"/our-work/[slug
 
   return (
     <>
-      <PageHero eyebrow="Our Work" title={project.title} intro={project.summary} image={cover.src} imageAlt={project.title} unoptimized={cover.remote && isLocalApi} />
+      <PageHero eyebrow="Our Work" title={project.title} intro={project.summary} image={cover.src} imageAlt={project.title} />
 
       <section className="bg-white py-20 lg:py-28">
         <Container className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:gap-20">
@@ -83,22 +101,13 @@ export default async function ProjectPage({ params }: PageProps<"/our-work/[slug
             <div className="grid auto-rows-[180px] grid-flow-dense grid-cols-2 gap-3 sm:auto-rows-[240px] lg:grid-cols-3 lg:gap-4">
               {project.gallery.map((src, index) => (
                 <Reveal key={src} delay={(index % 3) * 80} className={index === 0 ? "relative col-span-2 row-span-2 overflow-hidden bg-steel-200" : "relative overflow-hidden bg-steel-200"}>
-                  <Image
-                    src={src}
-                    alt={`${project.title}, photo ${index + 1}`}
-                    fill
-                    unoptimized={isLocalApi}
-                    sizes="(min-width: 1024px) 40vw, 50vw"
-                    className="object-cover"
-                  />
+                  <Image src={src} alt={`${project.title}, photo ${index + 1}`} fill sizes="(min-width: 1024px) 40vw, 50vw" className="object-cover" />
                 </Reveal>
               ))}
             </div>
           </Container>
         </section>
       )}
-
-      <CtaBand title="Planning similar work?" text="Tell us the scope, location and schedule. We'll review it and follow up with a clear, documented proposal." />
     </>
   );
 }

@@ -3,8 +3,11 @@ import Link from "next/link";
 import { ArrowUpRight, Images, MapPin } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { services } from "@/content/services";
-import { isLocalApi, type Project } from "@/lib/api";
+import type { Project } from "@/lib/api";
 import { cn } from "@/lib/cn";
+
+/** Project detail URL; one static page loads any project by slug. */
+export const projectHref = (slug: string) => `/our-work/project/?slug=${encodeURIComponent(slug)}`;
 
 /** Cover image for a project, falling back to the matching service photo. */
 export function projectCover(project: Project): { src: string; remote: boolean } {
@@ -22,7 +25,7 @@ export function ProjectCard({ project, index, featured = false }: { project: Pro
   return (
     <Reveal as="article" delay={(index % 3) * 90} className={cn("group", featured && "lg:col-span-full")}>
       <Link
-        href={`/our-work/${project.slug}`}
+        href={projectHref(project.slug)}
         className={cn("block", featured && "grid items-stretch gap-0 bg-white shadow-panel ring-1 ring-steel-200 lg:grid-cols-[1.4fr_1fr]")}
       >
         <div className={cn("relative overflow-hidden bg-steel-200", featured ? "aspect-[16/10] lg:aspect-auto lg:min-h-[440px]" : "aspect-[4/3] clip-angle-tr [--cut:40px]")}>
@@ -30,7 +33,6 @@ export function ProjectCard({ project, index, featured = false }: { project: Pro
             src={cover.src}
             alt={project.title}
             fill
-            unoptimized={cover.remote && isLocalApi}
             sizes={featured ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
             className="object-cover transition-transform duration-[1.2s] ease-[var(--ease-industrial)] group-hover:scale-105"
           />

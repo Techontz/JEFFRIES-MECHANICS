@@ -52,15 +52,12 @@ export type Project = {
   is_featured: boolean;
 };
 
-/** Local backends can't go through the Next image optimizer (private IPs are blocked). */
-export const isLocalApi = /localhost|127\.0\.0\.1/.test(API_URL);
-
-/** Server-side GET with ISR caching. Returns null if the backend is unreachable. */
-async function getJson<T>(path: string, revalidate = 300): Promise<T | null> {
+/** GET from the API. Returns null if the backend is unreachable or the record is missing. */
+async function getJson<T>(path: string): Promise<T | null> {
   try {
     const response = await fetch(`${API_URL}/api/${path}`, {
       headers: { Accept: "application/json" },
-      next: { revalidate },
+      cache: "no-store",
     });
 
     return response.ok ? ((await response.json()) as T) : null;
@@ -69,13 +66,24 @@ async function getJson<T>(path: string, revalidate = 300): Promise<T | null> {
   }
 }
 
-export const getFormOptions = () => getJson<FormOptions>("form-options");
+/** One request per path per page view, shared by every component that asks for it. */
+const pending = new Map<string, Promise<unknown>>();
 
-export const getJobOpenings = async () => (await getJson<{ data: JobOpening[] }>("job-openings", 120))?.data ?? [];
+function load<T>(path: string): Promise<T | null> {
+  if (!pending.has(path)) {
+    pending.set(path, getJson<T>(path));
+  }
 
-export const getProjects = async () => (await getJson<{ data: Project[] }>("projects", 120))?.data ?? [];
+  return pending.get(path) as Promise<T | null>;
+}
 
-export const getProject = async (slug: string) => (await getJson<{ data: Project }>(`projects/${encodeURIComponent(slug)}`, 120))?.data ?? null;
+export const getFormOptions = () => load<FormOptions>("form-options");
+
+export const getJobOpenings = async () => (await load<{ data: JobOpening[] }>("job-openings"))?.data ?? [];
+
+export const getProjects = async () => (await load<{ data: Project[] }>("projects"))?.data ?? [];
+
+export const getProject = async (slug: string) => (await load<{ data: Project }>(`projects/${encodeURIComponent(slug)}`))?.data ?? null;
 
 /* ------------------------------------------------------------------
    Browser-side submissions

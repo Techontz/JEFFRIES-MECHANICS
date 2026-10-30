@@ -1,10 +1,9 @@
+import { Suspense } from "react";
 import { Clock3, FileCheck2, ShieldCheck } from "lucide-react";
-import { FormUnavailable } from "@/components/forms/FormUnavailable";
-import { QuoteWizard } from "@/components/forms/QuoteWizard";
+import { FormLoading } from "@/components/forms/FormLoading";
+import { QuoteFormPanel } from "@/components/forms/LiveForms";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { services } from "@/content/services";
-import { getFormOptions } from "@/lib/api";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -20,9 +19,7 @@ const assurances = [
   { icon: Clock3, text: "Takes about three minutes" },
 ];
 
-export default async function QuotePage({ searchParams }: PageProps<"/quote">) {
-  const [options, params] = await Promise.all([getFormOptions(), searchParams]);
-  const requested = typeof params.service === "string" ? services.find((service) => service.slug === params.service)?.title : undefined;
+export default function QuotePage() {
 
   return (
     <>
@@ -50,13 +47,15 @@ export default async function QuotePage({ searchParams }: PageProps<"/quote">) {
 
       <section className="steel-wash pb-28">
         <Container className="relative -mt-28">
-          {options ? (
-            <QuoteWizard options={options} initialService={requested} />
-          ) : (
-            <div className="bg-white shadow-xl ring-1 ring-steel-200">
-              <FormUnavailable />
-            </div>
-          )}
+          <Suspense
+            fallback={
+              <div className="bg-white shadow-xl ring-1 ring-steel-200">
+                <FormLoading />
+              </div>
+            }
+          >
+            <QuoteFormPanel />
+          </Suspense>
         </Container>
       </section>
     </>
